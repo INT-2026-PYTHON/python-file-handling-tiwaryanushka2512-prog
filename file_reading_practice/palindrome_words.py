@@ -51,3 +51,17 @@ Explanation:
 =================================================
 
 """
+def is_palindrome(word):
+    return word == word[::-1]
+
+total_count = 0
+
+with open("file_reading_practice/sowpods.txt", "r") as file:
+    for line in file:
+        word = line.strip().lower()
+        
+        if is_palindrome(word):
+            print(word)
+            total_count += 1
+
+print("Total palindromes:", total_count)

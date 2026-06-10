@@ -53,3 +53,18 @@ Sorted -> ['b', 'd', 'e', 'h', 'k', 'm', 'n',
 =================================================
 
 """
+seen = set()
+doubled = set()
+
+with open("file_reading_practice/sowpods.txt", "r") as file:
+    for line in file:
+        word = line.strip().lower()
+        
+        for i in range(len(word)):
+            char = word[i]
+            seen.add(char)
+            
+            if i < len(word) - 1 and char == word[i + 1]:
+                doubled.add(char)
+
+print(sorted(list(seen - doubled)))
